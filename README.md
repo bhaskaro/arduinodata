@@ -1,29 +1,54 @@
-# README #
+## Build from Source
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Prerequisites
 
-### What is this repository for? ###
+- Git installed
+- JDK 17 available at:
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+```bash
+/scratch/voggu/binaries/jdk-17.0.6
+```
 
-### How do I get set up? ###
+---
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### 1. Clone the repository
 
-### Contribution guidelines ###
+```bash
+mkdir -p /scratch/voggu/iot
+cd /scratch/voggu/iot
 
-* Writing tests
-* Code review
-* Other guidelines
+git clone https://github.com/bhaskaro/weatherapp.git
+cd weatherapp
+```
 
-### Who do I talk to? ###
+> Application path after clone: `/scratch/voggu/iot/weatherapp`
 
-* Repo owner or admin
-* Other community or team contact
+---
+
+### 2. Set `JAVA_HOME` and update `PATH`
+
+```bash
+export JAVA_HOME=/scratch/voggu/binaries/jdk-17.0.6
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
+You can add these lines to your shell profile (`~/.bashrc`, `~/.bash_profile`, etc.) to persist them.
+
+---
+
+### 3. Build the application using Maven Wrapper
+
+```bash
+cd /scratch/voggu/iot/weatherapp
+
+# Ensure mvnw is executable (first time only)
+chmod +x mvnw
+
+# Build the project
+./mvnw clean package
+```
+
+The packaged JAR will be available under the `target/` directory after a successful build.
+
+```
+```
